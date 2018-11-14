@@ -1,19 +1,22 @@
-# Welcome!
-
-This C++ template lets you get started quickly with a simple one-page playground.
-
+# 
 ```C++ runnable
-#include <iostream>
+#include<iostream>
 
-using namespace std;
-
-int main() 
+struct foo
 {
-    cout << "Hello, World!";
-    return 0;
+    // (a):
+    void bar() { std::cout << "gman was here" << std::endl; }
+
+    // (b):
+    void baz() { x = 5; }
+
+    int x;
+};
+int main()
+{
+    static_cast<foo*>(NULL)->bar(); //works
+    foo* f = new foo();
+         f = nullptr;
+    f->bar(); // (a)
+    f->baz(); // (b) // use this pointer, will coredump
 }
-```
-
-# Advanced usage
-
-If you want a more complex example (external libraries, viewers...), use the [Advanced C++ template](https://tech.io/select-repo/598)
